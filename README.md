@@ -22,7 +22,7 @@ This program has no requirements to run. As long as you can run a C++ program, t
 
 System Requirements
 -------------------
-This program has no system requirements. As long as you can run a C++ program, this program should have no problem.
+This program was designed in a Linux environment and uses the g++ compiler. However, this program should work in any environment that can run C++ programs.
 
 Group Members
 -------------
