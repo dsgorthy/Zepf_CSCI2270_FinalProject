@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-    Library L;
+    Library L; // Create Library
     string command;
     while (command != "8")
     {
@@ -44,8 +44,11 @@ int main()
             getline (cin, movieTitle);
             cout << "Enter rating on a scale of 0 to 5:" << endl;
             getline (cin, ratingString);
-            rating = stoi(ratingString);
-            L.addRating(userName, movieTitle, rating);
+            rating = stoi(ratingString); // Change variable from string to int
+            if (rating > 5 || rating < 0)
+                cout << "Please enter a rating between 0 and 5" << endl;
+            else
+                L.addRating(userName, movieTitle, rating);
         }
         else if (command == "3")
         {

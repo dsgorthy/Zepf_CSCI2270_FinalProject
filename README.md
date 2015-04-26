@@ -39,3 +39,6 @@ Open Issues/Bugs
 - There are no functions to delete or change ratings
 - On some very rare occasions, it will recommend a movie to a user that they have already seen. For example, in the autofilled database, it will recommend "Moneyball" to Chase and Max even though they have both seen it.
 - The autofill feature only puts in 5 users and 25 ratings, so to make the autofill more effective, there could be more entries.
+- Every user's hashtable has 10 spots, which is hardcoded into the program. If the movie database got really huge, there would be a lot of collisions, leading to an inefficient hashtable.
+- Deconstructor function is not used. It could be implemented to delete all movies in all user's hashTables and then delete all the users.
+- Default diffScore is set to 1,000,000 so if every other user has a higher diffScore, then the findMatches function will not work. This would only occur with very big databases.

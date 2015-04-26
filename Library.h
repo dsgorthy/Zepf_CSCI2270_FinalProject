@@ -11,21 +11,21 @@
 
 struct Movie
 {
-    std::string title;
-    int rating;
-    Movie* next;
-    Movie* prev;
+    std::string title; // Title of movie
+    int rating; // Rating of movie
+    Movie* next; // Pointer for collision linked list
+    Movie* prev; // Pointer for collision linked list
 };
 
 struct User
 {
-    std::string name;
-    User* next;
-    User* prev;
-    User* max1;
-    User* max2;
-    int diffScore;
-    Movie* movieHashTable[10];
+    std::string name; // Name of user
+    User* next; // Pointer for linked list
+    User* prev; // Pointer for linked list
+    User* max1; // Pointer to most similar user
+    User* max2; // Pointer to second most similar user
+    int diffScore; // Stores how different the user's ratings are to a comparing user
+    Movie* movieHashTable[10]; // Hashtable that stores the user's ratings
 };
 
 class Library
@@ -45,7 +45,7 @@ class Library
         void autoFill();
     protected:
     private:
-        User* userRoot;
+        User* userRoot; // Root of the linked list of Users.
 };
 
 #endif // MOVIE_H
