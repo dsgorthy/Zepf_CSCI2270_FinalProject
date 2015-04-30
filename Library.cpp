@@ -4,6 +4,15 @@
 // Definitions for Library.h
 // April 2015
 
+//____________________________________
+
+// Changes made by Derek Gorthy
+// Date: 4/30/15
+// Forked files to own profile
+// URL: https://github.com/dsgorthy/Zepf_CSCI2270_FinalProject
+
+//____________________________________
+
 #include "Library.h"
 #include <iostream>
 #include <cmath>
@@ -68,6 +77,44 @@ void Library::addUser(string userName)
         x->next = u;
         u->prev = x;
     }
+}
+
+void Library::deleteUser(string userName){
+    int count = 0;
+    User *z = userRoot;
+
+    while (z != NULL && z->name != userName){
+        z = z->next;
+        count++;
+        }       
+                
+        if (count == 0){
+            User *a = userRoot;
+            userRoot = userRoot->next;
+            delete [] a; 
+        }   
+
+        else{   
+            User *y = new User;
+            y = userRoot;
+
+            for (int i = 0; i < (count-1); i++){
+                User *tempo = new User;
+                tempo = y->next;
+                y = tempo;
+            }       
+
+            User *x = new User;
+            x = userRoot;
+
+            for (int j = 0; j < (count + 1); j++){
+                User *tempos = new User;
+                tempos = x->next;
+                x = tempos;
+            }
+            y->next = x;
+            delete z;
+            }
 }
 
 void Library::printUsers()
@@ -470,6 +517,10 @@ L.autoFill();
 Precondition: No preconditions. This function can be run as soon as a Library has been created.
 Post Condition: Adds 5 users and 25 ratings to the database.
 */
+
+//~~~~~~~~~~~~~~
+//Added 5 more users to the autofill function
+//~~~~~~~~~~~~~~
 void Library::autoFill()
 {
     string userName;
@@ -508,4 +559,39 @@ void Library::autoFill()
     addRating(userName, "Dear John", 4);
     addRating(userName, "Bridesmaids", 4);
     addRating(userName, "The Avengers", 3);
+    userName = "David";
+    addUser(userName);
+    addRating(userName, "Batman", 5);
+    addRating(userName, "Mud", 2);
+    addRating(userName, "Wonderland", 4);
+    addRating(userName, "Wall-E", 5);
+    addRating(userName, "Spiderman", 2);
+    userName = "Cher";
+    addUser(userName);
+    addRating(userName, "Star Wars", 5);
+    addRating(userName, "Inception", 1);
+    addRating(userName, "Dear John", 3);
+    addRating(userName, "Moneyball", 3);
+    addRating(userName, "50 Shades of Grey", 5);
+    userName = "Jack";
+    addUser(userName);
+    addRating(userName, "Star Wars", 5);
+    addRating(userName, "Inception", 5);
+    addRating(userName, "Dear John", 2);
+    addRating(userName, "Moneyball", 4);
+    addRating(userName, "50 Shades of Grey", 2);
+    userName = "Charlie";
+    addUser(userName);
+    addRating(userName, "Mud", 4);
+    addRating(userName, "Inception", 5);
+    addRating(userName, "Austin Powers", 4);
+    addRating(userName, "Moneyball", 2);
+    addRating(userName, "50 Shades of Grey", 2);
+    userName = "Derek";
+    addUser(userName);
+    addRating(userName, "Star Wars", 5);
+    addRating(userName, "Inception", 2);
+    addRating(userName, "Trailer Park Boys", 4);
+    addRating(userName, "Moneyball", 3);
+    addRating(userName, "50 Shades of Grey", 5);
 }

@@ -4,6 +4,15 @@
 // Header File
 // April 2015
 
+//____________________________________
+
+// Changes made by Derek Gorthy
+// Date: 4/30/15
+// Forked files to own profile
+// URL: https://github.com/dsgorthy/Zepf_CSCI2270_FinalProject
+
+//____________________________________
+
 #ifndef MOVIE_H
 #define GRAPH_H
 
@@ -43,6 +52,7 @@ class Library
         void findMatches(std::string userName);
         void findRecommendations(std::string userName);
         void autoFill();
+        void deleteUser(std::string userName);
     protected:
     private:
         User* userRoot; // Root of the linked list of Users.
