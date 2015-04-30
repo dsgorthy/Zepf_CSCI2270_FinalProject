@@ -4,6 +4,15 @@
 // Driver function
 // April 2015
 
+//____________________________________
+
+// Changes made by Derek Gorthy
+// Date: 4/30/15
+// Forked files to own profile
+// URL: https://github.com/dsgorthy/Zepf_CSCI2270_FinalProject
+
+//____________________________________
+
 #include "Library.h"
 #include <iostream>
 #include <string>
@@ -13,7 +22,7 @@ int main()
 {
     Library L; // Create Library
     string command;
-    while (command != "8")
+    while (command != "9")
     {
         cout << "======MAIN MENU======" << endl;
         cout << "1. Add User" << endl;
@@ -23,7 +32,8 @@ int main()
         cout << "5. Find Matches" << endl;
         cout << "6. Find Recommendations" << endl;
         cout << "7. AutoFill Library (Testing Purposes)" << endl;
-        cout << "8. Quit" << endl;
+        cout << "8. Delete User (NEW FUNCTION!)" << endl;
+        cout << "9. Quit" << endl;
         getline (cin, command);
         if (command == "1")
         {
@@ -78,6 +88,14 @@ int main()
         else if (command == "7")
         {
             L.autoFill();
+        }
+
+        if (command == "8")
+        {
+            string userName;
+            cout << "Enter name of user:" << endl;
+            getline (cin, userName);
+            L.deleteUser(userName);
         }
     }
     cout << "Goodbye!" << endl;
